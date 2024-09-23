@@ -1,5 +1,5 @@
 export const pageName = 'Tools';
-export const primaryColor = '#000000';
+export const primaryColor = '#EA5E5EFF';
 export const backgroundColor = '#FFFFFF';
 export const makeClearBackground = (color) => {
   return {

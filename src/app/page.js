@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <main
       style={{
-        backgroundColor: '#F5F4D3FF',
+        backgroundColor: '#C9EAF7FF',
       }}
     >
       <Navbar />
@@ -29,8 +29,8 @@ export default function Home() {
         <Hero
           variant='background-img'
           src={dataSite.image_hero}
-          colorText='white'
-          title={dataSite.subtitle}
+          colorText='#FF5959FF'
+          title={"Tools for your business's growth"}
           description={dataSite.description}
           srcSecondary={dataSite.image_hero2}
           withSubView
@@ -39,21 +39,49 @@ export default function Home() {
             color: 'black',
           }}
           withShadowText
-          contentThirdSection={() => {
-            return (
-              <div className='flex flex-col gap-10'>
-                <Typography.Title level={2} className='text-center'>
-                  {dataSite.title}
-                </Typography.Title>
-                <Typography.Text className='text-center'>
-                  {dataSite.description}
-                </Typography.Text>
-              </div>
-            );
-          }}
+          contentThirdSection={
+            <div
+              style={{
+                zIndex: 2,
+              }}
+              className='flex flex-col gap-10 px-32 '
+            >
+              <Typography.Title level={2} className='text-white text-center'>
+                {dataSite.subtitle}
+              </Typography.Title>
+              <Typography.Text className='text-white  text-center'>
+                {dataSite.description}
+              </Typography.Text>
+            </div>
+          }
         />
       </div>
       <div className='container mx-auto flex flex-col gap-20 my-24'>
+        <div id='popular-courses'>
+          {dataSite.products.length > 1 && (
+            <ProductSection
+              withCategoryFilter={true}
+              title='Popular Courses'
+              gridColumns={3}
+              variant='grid'
+              productsPerPage={1}
+              productItemVariant='vertical'
+              onClickImage={(id) => {
+                router.push(`/product/${id}`);
+              }}
+              titleFilter={null}
+              productVersion='1'
+              carouselOptions={{
+                backgroundColor: 'transparent',
+              }}
+              stylesItem={{
+                borderRadius: 12,
+              }}
+              backgroundItemColor='#FFFFFF'
+              selectedCategory={dataSite.categories[0]}
+            />
+          )}
+        </div>
         <div className='flex flex-col' id='our-services'>
           <FeaturesV2
             features={dataSite.services.map((feature) => ({
@@ -75,25 +103,26 @@ export default function Home() {
             borderRadius={10}
             variant='text'
             textColorDescription={primaryColor}
-            version='v1'
+            version='v2'
           />
         </div>
-
         <div id='courses'>
           {dataSite.products.length > 1 && (
             <ProductSection
-              withCategoryFilter={true}
+              withCategoryFilter={false}
               title='All Courses'
-              gridColumns={2}
-              variant='grid'
-              productsPerPage={1}
+              gridColumns={3}
+              variant='carousel'
               productItemVariant='vertical'
               onClickImage={(id) => {
                 router.push(`/product/${id}`);
               }}
-              productVersion='4'
+              productVersion='1'
               carouselOptions={{
-                backgroundColor: 'transparent',
+                arrowColor: 'black',
+                fade: true,
+                autoPlay: false,
+                direction: 'horizontal',
               }}
               backgroundItemColor='#FBFBFB'
               stylesItem={{
@@ -121,11 +150,11 @@ export default function Home() {
               autoPlay: false,
               direction: 'horizontal',
             }}
-            variantItem='text'
-            variant='carousel'
-            backgroundColor='#E5D9BAFF'
+            variantItem='card'
+            variant='grid'
+            backgroundColor='#BAE5DEFF'
             references={dataSite.references}
-            gridColumns={2}
+            gridColumns={3}
             titleAlign='center'
           />
         </div>
