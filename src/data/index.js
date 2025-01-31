@@ -1,6 +1,6 @@
-export const pageName = 'Tools';
-export const primaryColor = '#EA5E5EFF';
-export const backgroundColor = '#FFFFFF';
+export const pageName = "Tools";
+export const primaryColor = "#EA5E5EFF";
+export const backgroundColor = "#FFFFFF";
 export const makeClearBackground = (color) => {
   return {
     backgroundColor: color,
@@ -9,37 +9,37 @@ export const makeClearBackground = (color) => {
 
 export const navData = [
   {
-    href: '/#courses',
-    label: 'Our Course',
+    href: "/#our-services",
+    label: "Services",
   },
   {
-    href: '/#our-services',
-    label: 'Our Services',
+    href: "/#courses",
+    label: "Shop",
   },
   {
-    href: '/#references',
-    label: 'References',
+    href: "/#references",
+    label: "Reviews",
   },
   {
-    href: '/#know-us',
-    label: 'Know Us',
+    href: "/#know-us",
+    label: "Know Us",
   },
   {
-    href: '/more-information',
-    label: 'Contact Us',
+    href: "/contact-us",
+    label: "Contact",
   },
 ];
 export const footerData = [
   {
-    href: '/pdf/AP.pdf',
-    label: 'Privacy',
+    href: "/pdf/AP.pdf",
+    label: "Privacy",
   },
   {
-    href: '/pdf/TYC.pdf',
-    label: 'Terms',
+    href: "/pdf/TYC.pdf",
+    label: "Terms",
   },
   {
-    href: '/more-information',
-    label: 'Contact Us',
+    href: "/more-information",
+    label: "Contact Us",
   },
 ];

@@ -6,9 +6,13 @@ import Footer from "@/components/organisms/Footer";
 
 export default function MoreInformation() {
   return (
-    <main className="relative">
+    <main className="relative bg-secondary">
       <Navbar />
-      <ContactInfo />
+      <ContactInfo
+        labelSend="Send a message"
+        classNameButton="bg-primary"
+        title="We are delighted to assist you with anything you need"
+      />
       <Footer />
     </main>
   );

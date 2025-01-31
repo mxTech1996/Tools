@@ -1,53 +1,43 @@
-'use client';
-import { useRouter } from 'next/navigation';
-import { navData } from '@/data';
-import { Navbar as NavbarV2, theme } from 'ecommerce-mxtech';
-import { useInformation } from '@/store/useInformation';
+"use client";
 
-const { useToken } = theme;
+import { navData } from "@/data";
+import { useInformation } from "@/store/useInformation";
+import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   const { dataSite } = useInformation();
-  const router = useRouter();
-  const {
-    token: { colorPrimary },
-  } = useToken();
 
   return (
-    <NavbarV2
-      linksProps={{
-        variant: 'button',
-        align: 'right',
-      }}
-      textColor='black'
-      withLogo={true}
-      imageProps={{
-        src: dataSite.iconImage,
-        className: 'w-20',
-      }}
-      styleTitle={{
-        fontWeight: 'bold',
-        fontSize: 16,
-      }}
-      links={navData}
-      onClickProduct={(product) => {
-        router.push(`/product/${product.id}`);
-      }}
-      buttonCartProps={{
-        onClick: () => router.push('/my-cart'),
-      }}
-      buttonContactProps={{
-        onClick: () => router.push('/more-information'),
-      }}
-      onRedirect={(path) => router.push(path)}
-      onSearch={(value) => {}}
-      stylesContentLink={{
-        backgroundColor: '#f7dc6f',
-      }}
-      styleHeader={{
-        height: 100,
-      }}
-    />
+    <div className="w-full bg-white sticky top-0 z-20 border-b border-b-primary">
+      <nav className="container mx-auto">
+        <div className="flex justify-between items-center py-4 px-8  text-primary">
+          <Link className="font-bold text-lg" href="/">
+            {dataSite.iconImage && (
+              <Image
+                src={dataSite.iconImage}
+                alt={dataSite.name}
+                width={40}
+                height={50}
+              />
+            )}
+          </Link>
+
+          <nav className="flex space-x-8">
+            {navData.map((item, index) => (
+              <Link key={index} href={item.href} className="hover:font-medium">
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <div className="flex space-x-8">
+            <Link href="/my-cart" className="hover:font-medium">
+              Go to Cart
+            </Link>
+          </div>
+        </div>
+      </nav>
+    </div>
   );
 };
 
