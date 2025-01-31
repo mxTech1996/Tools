@@ -7,7 +7,17 @@ import { useInformation } from "@/store/useInformation";
 import Image from "next/image";
 import Link from "next/link";
 import { formatNumber, useCart } from "ecommerce-mxtech";
-import { FaChevronRight, FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+
+const getSrc = (i = number) => {
+  if (i === 0) {
+    return "/images/ser-01.jpg";
+  }
+  if (i === 1) {
+    return "/images/ser-02.jpg";
+  }
+  return "/images/ser-03.jpg";
+};
 
 export default function Home() {
   const { dataSite } = useInformation();
@@ -205,8 +215,16 @@ export default function Home() {
           <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
             {dataSite?.info?.map((info, i) => {
               return (
-                <div className="bg-primary rounded-lg  text-white p-6" key={i}>
-                  <div className="flex flex-col items-center">
+                <div className="bg-primary rounded-lg  text-white" key={i}>
+                  <Image
+                    src={getSrc(i)}
+                    alt={info.name}
+                    width={500}
+                    height={500}
+                    className="w-full h-72 object-cover"
+                  />
+
+                  <div className="flex flex-col items-center p-6">
                     <h2 className="text-xl font-bold mb-2 uppercase">
                       {info.title}
                     </h2>
