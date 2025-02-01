@@ -2,12 +2,12 @@
 
 import Footer from "@/components/organisms/Footer";
 import Navbar from "@/components/organisms/Navbar";
-import { useInformation } from "@/store/useInformation";
 
 import Image from "next/image";
 import Link from "next/link";
 import { formatNumber, useCart } from "ecommerce-mxtech";
 import { FaStar } from "react-icons/fa";
+import { dataSite } from "@/data";
 
 const getSrc = (i = number) => {
   if (i === 0) {
@@ -20,11 +20,8 @@ const getSrc = (i = number) => {
 };
 
 export default function Home() {
-  const { dataSite } = useInformation();
-
   const { handleAddOrRemoveProduct, validateProductInCart } = useCart();
 
-  console.log(dataSite);
   return (
     <main>
       <Navbar />

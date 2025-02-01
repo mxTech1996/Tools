@@ -1,13 +1,10 @@
 "use client";
 
-import { navData } from "@/data";
-import { useInformation } from "@/store/useInformation";
+import { navData, dataSite } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
-  const { dataSite } = useInformation();
-
   return (
     <div className="w-full bg-white sticky top-0 z-20 border-b border-b-primary">
       <nav className="container mx-auto">
