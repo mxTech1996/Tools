@@ -19,6 +19,59 @@ const getSrc = (i = number) => {
   return "/images/ser-03.jpg";
 };
 
+const testimonialImages = [
+  {
+    src: "/images/leads.jpg",
+    alt: "Professional portrait",
+    className: "absolute left-20 top-10",
+  },
+  {
+    src: "/images/leads.jpg",
+    alt: "Professional portrait",
+    className: "absolute left-48 top-0",
+  },
+  {
+    src: "/images/leads.jpg",
+    alt: "Professional portrait",
+    className: "absolute left-96 top-16",
+  },
+  {
+    src: "/images/leads.jpg",
+    alt: "Professional portrait",
+    className: "absolute right-96 top-0",
+  },
+  {
+    src: "/images/leads.jpg",
+    alt: "Professional portrait",
+    className: "absolute right-48 top-20",
+  },
+  {
+    src: "/images/leads.jpg",
+    alt: "Professional portrait",
+    className: "absolute right-20 top-8",
+  },
+  {
+    src: "/images/leads.jpg",
+    alt: "Professional portrait",
+    className: "absolute left-32 bottom-0",
+  },
+  {
+    src: "/images/leads.jpg",
+    alt: "Professional portrait",
+    className: "absolute left-72 bottom-20",
+  },
+  {
+    src: "/images/leads.jpg",
+    alt: "Professional portrait",
+    className: "absolute right-72 bottom-16",
+  },
+  {
+    src: "/images/leads.jpg",
+    alt: "Professional portrait",
+    className: "absolute right-32 bottom-4",
+  },
+];
+
 export default function Home() {
   const { handleAddOrRemoveProduct, validateProductInCart } = useCart();
 
@@ -56,6 +109,44 @@ export default function Home() {
           </div>
         </section>
       </div>
+
+      <section className="relative w-full overflow-hidden bg-white px-4 py-20 mt-40 mb-20">
+        <div className="relative mx-auto max-w-6xl text-center">
+          <div className="space-y-4">
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+              Committed to Excellence
+              <br />
+              <span className="text-gray-400">
+                with Best Practices and Techniques
+              </span>
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-gray-600">
+              Discover how our solutions leverage the best practices and
+              techniques to enhance your experience.
+            </p>
+          </div>
+        </div>
+
+        {/* Testimonial Images */}
+        <div className="absolute inset-0 z-0">
+          {testimonialImages.map((image, index) => (
+            <div
+              key={index}
+              className={`${image.className} transition-transform hover:scale-105`}
+            >
+              <div className="h-32 w-32 overflow-hidden rounded-2xl shadow-lg">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={180}
+                  height={180}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Services */}
       {dataSite?.services?.length > 0 && (
@@ -167,6 +258,27 @@ export default function Home() {
           })}
         </div>
       </section>
+
+      <div className="bg-primary hird h-[180px] text-white py-8 mt-20">
+        <div className="h-full max-w-4xl mx-auto flex items-center justify-around">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold">100k+</h2>
+            <p>Active Costumers</p>
+          </div>
+          <div className="text-center">
+            <h2 className="text-3xl font-bold">200+</h2>
+            <p>Expert Instructors</p>
+          </div>
+          <div className="text-center">
+            <h2 className="text-3xl font-bold">80k+</h2>
+            <p>Worldwide Learners</p>
+          </div>
+          <div className="text-center">
+            <h2 className="text-3xl font-bold">500+</h2>
+            <p>Advance Topics</p>
+          </div>
+        </div>
+      </div>
 
       {/* References */}
       <div className="bg-secondary py-24 my-10 text-white" id="references">
