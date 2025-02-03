@@ -45,8 +45,8 @@ const CartSectionComponent = () => {
         <div className="flex flex-col gap-5">
           {step === "cart" && (
             <CartSectionV2
-              gridColumns={2}
-              variant="grid"
+              variant="table"
+              gridColumns={1}
               withDetails
               inputProps={{
                 onInput: (e) => onChangeDiscount(e.target.value),
